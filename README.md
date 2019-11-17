@@ -1,2 +1,2 @@
 # yelp-business-api-aws
-Yelp Business API build on AWS services
+Yelp Business API built on AWS services
