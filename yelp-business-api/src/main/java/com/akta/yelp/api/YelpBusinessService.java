@@ -9,5 +9,5 @@ public interface YelpBusinessService {
 
   @GET("businesses/{id}")
   Call<Business> getBusiness(@Path("id") String businessId);
-  
+
 }
