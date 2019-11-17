@@ -12,6 +12,10 @@ public class ObjectMapperHelper {
   private static final ObjectReader JSON_READER = JSON_MAPPER.reader();
   private static final ObjectWriter JSON_WRITER = JSON_MAPPER.writer();
 
+  public static ObjectMapper jsonMapper() {
+    return JSON_MAPPER;
+  }
+
   public static <T> T deserialize(String json, Class<T> type) {
     try {
       return JSON_READER.forType(type).readValue(json);
