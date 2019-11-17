@@ -2,17 +2,16 @@ package com.akta.yelp.api.response;
 
 import static java.util.Objects.nonNull;
 
-import java.util.Optional;
 import retrofit2.Call;
 import retrofit2.Response;
 
 public interface ApiResult<T> {
 
-  Optional<T> getResult();
+  T getResult();
 
-  Optional<ErrorResult<T>> getError();
+  ErrorResult<T> getError();
 
-  Optional<ExceptionResult<T>> getException();
+  ExceptionResult<T> getException();
 
   <R> R visit(Visitor<T, R> visitor);
 

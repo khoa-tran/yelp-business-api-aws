@@ -1,7 +1,5 @@
 package com.akta.yelp.api.response;
 
-import java.util.Optional;
-
 public class SuccessResult<T> implements ApiResult<T> {
 
   private T result;
@@ -11,23 +9,23 @@ public class SuccessResult<T> implements ApiResult<T> {
   }
 
   @Override
-  public Optional<T> getResult() {
-    return Optional.of(result);
+  public T getResult() {
+    return result;
   }
 
   @Override
-  public Optional<ErrorResult<T>> getError() {
-    return Optional.empty();
+  public ErrorResult<T> getError() {
+    return null;
   }
 
   @Override
-  public Optional<ExceptionResult<T>> getException() {
-    return Optional.empty();
+  public ExceptionResult<T> getException() {
+    return null;
   }
 
   @Override
   public <R> R visit(Visitor<T, R> visitor) {
     return visitor.caseSuccess(result);
   }
-  
+
 }

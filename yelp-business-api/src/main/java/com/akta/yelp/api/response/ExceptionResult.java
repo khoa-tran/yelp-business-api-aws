@@ -1,7 +1,5 @@
 package com.akta.yelp.api.response;
 
-import java.util.Optional;
-
 public class ExceptionResult<T> implements ApiResult<T> {
 
   private Integer maybeStatusCode;
@@ -19,18 +17,18 @@ public class ExceptionResult<T> implements ApiResult<T> {
   }
 
   @Override
-  public Optional<T> getResult() {
-    return Optional.empty();
+  public T getResult() {
+    return null;
   }
 
   @Override
-  public Optional<ErrorResult<T>> getError() {
-    return Optional.empty();
+  public ErrorResult<T> getError() {
+    return null;
   }
 
   @Override
-  public Optional<ExceptionResult<T>> getException() {
-    return Optional.of(this);
+  public ExceptionResult<T> getException() {
+    return this;
   }
 
   @Override
