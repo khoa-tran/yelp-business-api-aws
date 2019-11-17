@@ -18,8 +18,8 @@ public class YelpBusinessModule extends AbstractModule {
   @Provides
   @Singleton
   public YelpBusinessService providesYelpBusinessService(
-      @Named("yelp.base_url") String baseUrl,
-      @Named("yelp.api_key") String apiKey) {
+      @Named("yelp_base_url") String baseUrl,
+      @Named("yelp_api_key") String apiKey) {
     OkHttpClient httpClient = new OkHttpClient.Builder()
         .readTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
