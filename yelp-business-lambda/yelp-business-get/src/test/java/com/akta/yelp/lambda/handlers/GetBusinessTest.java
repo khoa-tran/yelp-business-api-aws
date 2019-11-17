@@ -1,5 +1,7 @@
 package com.akta.yelp.lambda.handlers;
 
+import static com.google.inject.Guice.createInjector;
+import static com.google.inject.name.Names.named;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
@@ -11,6 +13,9 @@ import com.akta.yelp.api.response.ApiResult.Visitor;
 import com.akta.yelp.api.response.ErrorResult;
 import com.akta.yelp.api.response.ExceptionResult;
 import com.akta.yelp.models.Business;
+import com.google.inject.AbstractModule;
+import com.google.inject.Injector;
+import com.google.inject.Stage;
 import org.junit.Test;
 import retrofit2.mock.Calls;
 
@@ -51,9 +56,24 @@ public class GetBusinessTest {
   }
 
   private GetBusiness getHandler() {
-    GetBusiness handler = new GetBusiness();
-    handler.service = service;
-    return handler;
+    return new GetBusiness() {
+      @Override
+      public YelpBusinessService getService() {
+        return service;
+      }
+
+      @Override
+      protected Injector getInjector() {
+        return createInjector(Stage.DEVELOPMENT, new AbstractModule() {
+          @Override
+          protected void configure() {
+            bind(String.class).annotatedWith(named("yelp_base_url")).toInstance("");
+            bind(String.class).annotatedWith(named("yelp_api_key")).toInstance("");
+            bind(YelpBusinessService.class).toInstance(service);
+          }
+        });
+      }
+    };
   }
 
 }
