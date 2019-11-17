@@ -2,15 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>yelp-business-parent</artifactId>
+    <groupId>com.akta</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.akta</groupId>
-  <artifactId>yelp-business-parent</artifactId>
+  <artifactId>yelp-business-lambda</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
+
   <modules>
-    <module>yelp-business-models</module>
-    <module>yelp-business-api</module>
-    <module>yelp-business-lambda</module>
+    <module>yelp-business-get</module>
   </modules>
+
 
 </project>
