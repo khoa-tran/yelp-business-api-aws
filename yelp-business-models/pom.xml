@@ -20,7 +20,7 @@
     <jackson.version>2.10.1</jackson.version>
     <lombok.version>1.18.10</lombok.version>
     <javax.json.version>1.1.4</javax.json.version>
-    <junit.version>4.12</junit.version>
+    <junit.version>4.13.1</junit.version>
   </properties>
 
   <dependencies>
