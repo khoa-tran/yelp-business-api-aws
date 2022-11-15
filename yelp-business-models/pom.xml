@@ -17,7 +17,7 @@
     <project.build.sourceJdk>1.8</project.build.sourceJdk>
     <project.build.targetJdk>1.8</project.build.targetJdk>
     <guava.version>23.0</guava.version>
-    <jackson.version>2.10.1</jackson.version>
+    <jackson.version>2.12.7.1</jackson.version>
     <lombok.version>1.18.10</lombok.version>
     <javax.json.version>1.1.4</javax.json.version>
     <junit.version>4.12</junit.version>
